@@ -24,23 +24,34 @@
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="name">名前</label>
+                            <label for="name">name</label>
                             <input type="text" class="form-control" id="name" name="name" placeholder="名前">
                         </div>
 
+
                         <div class="form-group">
-                            <label for="type">種別</label>
+                            <label for="type">season</label>
                             <input type="number" class="form-control" id="type" name="type" placeholder="1, 2, 3, ...">
                         </div>
 
                         <div class="form-group">
-                            <label for="detail">詳細</label>
+                            <label for="type">type（M/W/Unisex)</label>
+                            <input type="number" class="form-control" id="type" name="type" placeholder="1, 2, 3, ...">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="type">category(outer/bottoms..)</label>
+                            <input type="number" class="form-control" id="type" name="type" placeholder="1, 2, 3, ...">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="detail">detail</label>
                             <input type="text" class="form-control" id="detail" name="detail" placeholder="詳細説明">
                         </div>
                     </div>
 
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">登録</button>
+                        <button type="submit" class="btn btn-primary">register</button>
                     </div>
                 </form>
             </div>

@@ -18,7 +18,10 @@ class CreateItemsTable extends Migration
             $table->bigInteger('user_id')->unsigned()->index();
             $table->string('name', 100)->index();
             $table->string('status', 100)->default('active');
-            $table->smallInteger('type')->nullable();
+            $table->smallInteger('type')->nullable()->comment('1=Mens,2=Womens,3=unisex');
+            $table->smallInteger('season')->nullable()->comment('1=SS,2=FW');
+            $table->smallInteger('category')->nullable()->comment('1=Outer,2=Bottoms,3=Shirt,4=others');
+
             $table->string('detail', 500)->nullable();
             $table->timestamps();
         });
