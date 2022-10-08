@@ -36,3 +36,9 @@ Route::get('/items/edit/{item_id}', [App\Http\Controllers\ItemController::class,
 
 //編集処理
 Route::post('/edit_item/{id}', [App\Http\Controllers\ItemController::class, 'edit_item'])->name('edit_item');
+
+Route::prefix('/search')->group(function(){
+    //検索処理
+    Route::get('/', [App\Http\Controllers\ItemController::class,'search'])->name('search');
+
+});

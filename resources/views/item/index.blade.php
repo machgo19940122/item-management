@@ -13,64 +13,6 @@
                 <div class="card-header">
                 
 
-                    <div class="mt-4">
-                        <form action="" method="GET">
-                            <div class="container">
-                                <div class="row">
-
-                                    <div class="col-6">
-                                        <input type="text" name="keyword" value="" class="form-control" placeholder="商品名で検索">
-                                    </div>
-
-                                    <div class="col-6">
-                                        <input type="submit" value="検索" class="btn btn-default">
-                                    </div>
-
-                                </div>
-                         </div>
-                         <div class="container">
-                             <div class="row mt-3">
-                                     <div class="col-6">
-                                         <select name="type" class="form-control" value="">
-                                         <option value="">type(未選択）</option>
-                                         <option value="1">Mens</option>
-                                         <option value="2">Womens</option>
-                                         <option value="3">Unisex</option>
-                                        
-                                         </select>
-                                     </div>
-                            
-                                     <div class="col-6">
-                                         <select name="season" class="form-control" value="">
-                                         <option value="">season(未選択）</option>
-                                         <option value="1">SS</option>
-                                         <option value="1">FW</option>
-                                        
-                                         </select>
-                                 </div>
-                             </div>
-
-                         </div>
-                         <div class="container">
-
-                             <div class="row mt-3">
-                                     <div class="col-6">
-                                         <select name="category" class="form-control" value="">
-                                            <option value="">category(未選択）</option>
-                                            <option value="1">outer</option>
-                                            <option value="2">bottoms</option>
-                                            <option value="3">shirt</option>
-                                            <option value="4">others</option>
-                                         </select>
-                                 </div>
-                             </div>
-
-                         </div>
-
-
-                        </form>
-                    </div>
-
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
                             <div class="input-group-append">
@@ -97,7 +39,8 @@
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $type[$item->type] }}</td>
-                                    <td>{{ $category[$item->category] }}</td>
+                                    <!-- <td>{{ $category[$item->category] }}</td> -->
+                                    <td>{{$item->category}}{{ $category[$item->category] }}</td>
                                     <td>{{$season[$item->season]}}</td>
                                     <!-- <td>{{ $item->detail }}</td> -->
                                     <td>

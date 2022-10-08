@@ -58,6 +58,69 @@ class ItemController extends Controller
 
 
     /**
+     * 商品検索
+     */
+    public function search(Request $request)
+    {
+
+        $keyword_type=$request->input('type');
+        $keyword_season=$request->input('season');
+        $keyword_name=$request->input('name');
+        $keyword_category=$request->input('category');
+
+        $query = Item::query();
+        if(!empty($keyword_name)){
+            $query->where('name', 'like', '%'.$keyword_name.'%');
+        }
+
+        if(!empty($keyword_type)){
+            $query->where('type','=',$keyword_type);
+        }
+
+        if(!empty($keyword_season)){
+            $query->where('season','=',$keyword_season);
+        }
+
+        if(!empty($keyword_category)){
+            $query->where('category','=',$keyword_category);
+        }
+
+        $items=$query->get();
+          
+   
+        // 商品一覧取得
+
+            $season = [
+                "1"=>"SS",
+                "2"=>"FW",];
+
+            $type = [
+                "1"=>"Mens",
+                "2"=>"Womens",
+                "3"=>"Unisex"];
+
+            $category = [
+                "1"=>"Outer",
+                "2"=>"Bottoms",
+                "3"=>"Shirts",
+                "4"=>"Others",];
+
+
+      return view('item/search', [
+        'items'=>$items,
+        'season'=>$season,
+        'type'=>$type,
+        'category'=>$category,
+        
+        'keyword_name'=>$keyword_name,
+        'keyword_category'=>$keyword_category,
+        'keyword_season'=>$keyword_season,
+        'keyword_type'=>$keyword_type
+      ]);
+
+    }
+
+    /**
      * 商品登録
      */
     public function add(Request $request)
