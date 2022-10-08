@@ -20,39 +20,57 @@
             @endif
 
             <div class="card card-primary">
-                <form method="POST">
+                <form method="POST" action="{{ route('edit_item', $item->id) }}">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
                             <label for="name">name</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="名前">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="名前" value="{{$item->name}}">
                         </div>
 
 
                         <div class="form-group">
                             <label for="season">season</label>
                             <select name='season' class="form-control">
-                                <option value="1">SS</option>
-                                <option value="2">FW</option>
+                                <option value="1"  
+                                <?php if($item->season == "1"):?>selected<?php endif ?>>
+                                  SS</option>
+                                <option value="2"  
+                                <?php if($item->season == "2"): ?>selected<?php endif ?>>
+                                  FW</option>
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="type">type（M/W/Unisex)</label>
                             <select name='type' class="form-control">
-                                <option value="1">Mens</option>
-                                <option value="2">Womens</option>
-                                <option value="3">Unisex</option>
+                                <option value="1"
+                                <?php if($item->type == "1"):?>selected<?php endif ?>
+                                >Mens</option>
+                                <option value="2"
+                                <?php if($item->type == "2"):?>selected<?php endif ?>
+                                >Womens</option>
+                                <option value="3"
+                                <?php if($item->type == "3"):?>selected<?php endif ?>
+                                >Unisex</option>
                              </select>
                         </div>
 
                         <div class="form-group">
                             <label for="category">category(outer/bottoms..)</label>
                             <select name='category' class="form-control">
-                                <option value="1">Outer</option>
-                                <option value="2">Bottoms</option>
-                                <option value="3">Shirts</option>
-                                <option value="4">Others</option>
+                                <option value="1"
+                                <?php if($item->category == "1"):?>selected<?php endif ?>
+                                >Outer</option>
+                                <option value="2"
+                                <?php if($item->category == "2"):?>selected<?php endif ?>
+                                >Bottoms</option>
+                                <option value="3"
+                                <?php if($item->category == "3"):?>selected<?php endif ?>
+                                >Shirts</option>
+                                <option value="4"
+                                <?php if($item->category == "4"):?>selected<?php endif ?>
+                                >Others</option>
                             </select>
                         </div>
 
@@ -63,7 +81,7 @@
                     </div>
 
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">register</button>
+                        <button type="submit" class="btn btn-primary">edit</button>
                     </div>
                     
                 </form>

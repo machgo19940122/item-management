@@ -26,3 +26,13 @@ Route::prefix('items')->group(function () {
     Route::get('/add', [App\Http\Controllers\ItemController::class, 'add']);
     Route::post('/add', [App\Http\Controllers\ItemController::class, 'add']);
 });
+
+//消去
+Route::delete('/items/add/{item_id}', [App\Http\Controllers\ItemController::class,'delete'])->name('delete');
+
+//編集画面取得
+Route::get('/items/edit/{item_id}', [App\Http\Controllers\ItemController::class,'get_edit'])->name('get_edit');
+
+
+//編集処理
+Route::post('/edit_item/{id}', [App\Http\Controllers\ItemController::class, 'edit_item'])->name('edit_item');

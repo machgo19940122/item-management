@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
 class Item extends Model
 {
@@ -16,7 +17,9 @@ class Item extends Model
         'name',
         'type',
         'detail',
-    ];
+        'category',
+        'season',
+        ];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -33,4 +36,8 @@ class Item extends Model
      */
     protected $casts = [
     ];
+
+
+    use Sortable;  // 追加
+
 }
